@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+
+<html>
+
+  <body>
+
+
+    <canvas id="myCanvas" width="400" height="300" style="border:1px solid #d3d3d3;">
+      
+Your browser does not support the HTML5 canvas tag.
+    </canvas>
+
+
+<script>
+
+
+
+
+var r = 10;
+var vx = 5;
+var vy = 5;
+var ji = 150;
+var jd = 150;
+var alto = 50;
+var ancho = 12;
+var x = 50;
+var y = 50;
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+
+function pintar(){
+    ctx.fillStyle = "#FFFFFF";
+    ctx.fillRect (0,0,c.width,c.height);
+    ctx.fillStyle = "#000000";
+    ctx.beginPath();
+    ctx.arc(x,y,r,0,2*Math.PI);
+    ctx.stroke();
+    ctx.fillStyle = "#FF0000";
+    ctx.fillRect (0,(ji-alto/2),ancho,alto);
+    ctx.fillRect (c.width-ancho,(jd-alto/2),ancho,alto);
+
+}
+function mover(){
+    x = x+vx;
+    y = y+vy;
+    if (y+r>=c.height){
+        vy *= -1;
+        y = -y+2*(c.height -r);
+    } else if(y-r<=0){
+        vy *= -1;
+        y += r-y;
+    }
+    if (x+r>=c.width){
+        vx *= -1;
+        x = 2*(c.width-r)-x;
+    } else if(x-r<=0){
+        vx *= -1;
+        x += r-x;
+    }
+}
+setInterval (function(){
+  mover();
+  pintar();
+},50);
+
+
+</script>
+
+  
+</body>
+
+</html>
