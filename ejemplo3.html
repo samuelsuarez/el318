@@ -57,7 +57,7 @@ function mover(){
             y = hDer;
         }else{
             vx *= -1;
-            x += r-x;
+            x += r-x+ancho;
         }
     }
     else if(x >= canva.width - ancho - r){
