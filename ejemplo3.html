@@ -41,7 +41,7 @@ function pintar(){
 
 }
 function mover(){
-    x = x+vx;
+     x = x+vx;
     y = y+vy;
     if (y+r>=canva.height){
         vy *= -1;
@@ -50,12 +50,24 @@ function mover(){
         vy *= -1;
         y += r-y;
     }
-    if (x+r>=canva.width){
-        vx *= -1;
-        x = 2*(canva.width-r)-x;
-    } else if(x-r<=0){
-        vx *= -1;
-        x += r-x;
+    
+    if(x <= r+ancho){
+        if((y < hIzq - alto/2)||(y > hIzq + alto/2)){
+            x = canva.width-ancho-r;
+            y = hDer;
+        }else{
+            vx *= -1;
+            x += r-x;
+        }
+    }
+    else if(x >= canva.width - ancho - r){
+        if((y < hDer - alto/2)||(y > hDer + alto/2)){
+            x = ancho + r;
+            y = hIzq;
+        }else{
+            vx *= -1;
+            x = 2*(canva.width-r)-x;
+        }
     }
 }
 setInterval (function(){
