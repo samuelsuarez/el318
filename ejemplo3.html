@@ -69,14 +69,14 @@ function moverTouch(event) {
     var i;
     var lng = event.touches.length;
     for(i = 0;  i < lng ; i++){
-        if(event.touches[i].clientId == idDer){
+        if(event.touches[i].identifier == idDer){
             hDer = event.touches[i].clientY;
             break;
         }
     }
     
     for(i = 0;  i < lng ; i++){
-        if(event.touches[i].clientId == idIzq){
+        if(event.touches[i].identifier == idIzq){
             hIzq = event.touches[i].clientY;
             break;
         }
@@ -93,7 +93,7 @@ function inicioTouch(event){
     if(idIzq === 0){
         for(i = 0 ; i < lng ; i++){
             if(event.touches[i].clientX <= limIzq){
-                idIzq = event.touches[i].clientId;
+                idIzq = event.touches[i].identifier;
                 hIzq = event.touches[i].clientY;
                 break;
             }
@@ -103,7 +103,7 @@ function inicioTouch(event){
     if(idDer === 0){
         for(i = 0; i < lng ; i++ ){
             if(event.touches[i].clientX >= limDer){
-                idDer = event.touches[i].clientId;
+                idDer = event.touches[i].identifier;
                 hDer = event.touches[i].clientY;
                 break;
             }
@@ -115,7 +115,7 @@ function finTouch(event){
     var i;
     var lng = event.touches.length;
     for(i = 0;  i < lng ; i++){
-        if(event.touches[i].clientId == idDer){
+        if(event.touches[i].identifier == idDer){
             break;
         }
     }
@@ -124,7 +124,7 @@ function finTouch(event){
     }
     
     for(i = 0;  i < lng ; i++){
-        if(event.touches[i].clientId == idIzq){
+        if(event.touches[i].identifier == idIzq){
             break;
         }
     }
