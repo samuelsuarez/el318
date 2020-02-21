@@ -18,8 +18,8 @@ var alto = 50;
 var ancho = 12;
 var x = 50;
 var y = 50;
-var idIzq = 0;
-var idDer = 0;
+var idIzq = -1;
+var idDer = -1;
 
 var canva = document.getElementById("myCanvas");
 var ctx = canva.getContext("2d");
@@ -120,7 +120,7 @@ function finTouch(event){
         }
     }
     if(i == lng){
-        idDer = 0;
+        idDer = -1;
     }
     
     for(i = 0;  i < lng ; i++){
@@ -129,7 +129,7 @@ function finTouch(event){
         }
     }
     if(i == lng){
-        idIzq = 0;
+        idIzq = -1;
     }
     
 }
