@@ -6,10 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
-    <video id="video" width="640" height="480" autoplay style="display:none;"></video>
-    <canvas id="canvas" width="640" height="480"></canvas>
+    <video id="video" width="480" height="640" autoplay style="display:none;"></video>
+    <canvas id="canvas" width="480" height="640"></canvas>
     <script>
 var video = document.getElementById('video');
+var canvas = document.getElementById('canvas');
+var context = canvas.getContext('2d');
 
 // Get access to the camera!
 if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
@@ -21,16 +23,13 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
     });
 }
 
-var canvas = document.getElementById('canvas');
-var context = canvas.getContext('2d');
-
 setInterval (function(){
-    context.drawImage(video, 0, 0, 640, 480);
+    context.drawImage(video, 0, 0, 480, 640);
     var imgData = context.getImageData(0, 0, canvas.width, canvas.height);
     var lng = imgData.data.length;
     var i;
     for (i=0; i<lng; i+=4){
-        imgData.data[i] = 255 - imgData.data[i];
+        imgData.data[i]   = 255 - imgData.data[i];
         imgData.data[i+1] = 255 - imgData.data[i+1];
         imgData.data[i+2] = 255 - imgData.data[i+2];
         imgData.data[i+3] = 255;
