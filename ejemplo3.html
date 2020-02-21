@@ -21,37 +21,38 @@ var y = 50;
 var idIzq = 0;
 var idDer = 0;
 
-var c = document.getElementById("myCanvas");
-var ctx = c.getContext("2d");
-c.ontouchmove = moverTouch;
-c.ontouchstart = inicioTouch;
-c.ontouchend = finTouch;
+var canva = document.getElementById("myCanvas");
+var ctx = canva.getContext("2d");
+  
+canva.addEventListener('touchend',finTouch);
+canva.addEventListener('touchmove',moverTouch);
+canva.addEventListener('touchstart',inicioTouch);
 
 function pintar(){
     ctx.fillStyle = "#FFFFFF";
-    ctx.fillRect (0,0,c.width,c.height);
+    ctx.fillRect (0,0,canva.width,canva.height);
     ctx.fillStyle = "#000000";
     ctx.beginPath();
     ctx.arc(x,y,r,0,2*Math.PI);
     ctx.stroke();
     ctx.fillStyle = "#FF0000";
     ctx.fillRect (0,(hIzq-alto/2),ancho,alto);
-    ctx.fillRect (c.width-ancho,(hDer-alto/2),ancho,alto);
+    ctx.fillRect (canva.width-ancho,(hDer-alto/2),ancho,alto);
 
 }
 function mover(){
     x = x+vx;
     y = y+vy;
-    if (y+r>=c.height){
+    if (y+r>=canva.height){
         vy *= -1;
-        y = -y+2*(c.height -r);
+        y = -y+2*(canva.height -r);
     } else if(y-r<=0){
         vy *= -1;
         y += r-y;
     }
-    if (x+r>=c.width){
+    if (x+r>=canva.width){
         vx *= -1;
-        x = 2*(c.width-r)-x;
+        x = 2*(canva.width-r)-x;
     } else if(x-r<=0){
         vx *= -1;
         x += r-x;
@@ -87,8 +88,8 @@ function moverTouch(event) {
 function inicioTouch(event){
     var i;
     var lng = event.touches.length;
-    var limIzq = c.width * 0.2;
-    var limDer = c.width * 0.8;
+    var limIzq = canva.width * 0.2;
+    var limDer = canva.width * 0.8;
     if(idIzq === 0){
         for(i = 0 ; i < lng ; i++){
             if(event.touches[i].clientX <= limIzq){
