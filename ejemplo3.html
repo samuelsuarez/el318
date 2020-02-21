@@ -90,7 +90,7 @@ function inicioTouch(event){
     var lng = event.touches.length;
     var limIzq = canva.width * 0.2;
     var limDer = canva.width * 0.8;
-    if(idIzq === 0){
+    if(idIzq === -1){
         for(i = 0 ; i < lng ; i++){
             if(event.touches[i].clientX <= limIzq){
                 idIzq = event.touches[i].identifier;
@@ -100,7 +100,7 @@ function inicioTouch(event){
         } 
     }
     
-    if(idDer === 0){
+    if(idDer === -1){
         for(i = 0; i < lng ; i++ ){
             if(event.touches[i].clientX >= limDer){
                 idDer = event.touches[i].identifier;
