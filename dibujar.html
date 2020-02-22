@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <canvas id="myCanvas" width="400" height="300" style="border:1px solid #d3d3d3;">
+    </canvas>
+<script>
+var canva = document.getElementById("myCanvas");
+var ctx = canva.getContext("2d");
+
+//dibuja un rectangulo rojo
+ctx.fillStyle = "#FF0000";
+ctx.fillRect (10,20,30,40);
+
+//dibuja una linea azul
+ctx.fillStyle = "#0000FF";
+ctx.moveTo(0, 0);
+ctx.lineTo(200, 100);
+ctx.stroke();
+
+//dibuja medio círculo verde
+ctx.fillStyle = "#00FF00";
+ctx.beginPath();
+ctx.arc(95, 50, 40, 0, 1 * Math.PI);
+ctx.stroke();
+  
+//escribe texto magenta
+ctx.fillStyle = "#FF00FF";
+ctx.font = "30px Comic Sans MS";
+ctx.fillText("Saludos", 10, 50);
+
+/*
+mas informacion:
+  https://www.w3schools.com/graphics/canvas_intro.asp
+  https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial
+*/
+</script>
+  </body>
+</html>
