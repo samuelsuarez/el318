@@ -9,6 +9,9 @@
     <video id="video" width="480" height="640" autoplay style="display:none;"></video>
     <canvas id="canvas" width="480" height="640"></canvas>
     <script>
+//https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices
+//https://www.digitalocean.com/community/tutorials/front-and-rear-camera-access-with-javascripts-getusermedia
+
 var video = document.getElementById('video');
 var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
@@ -16,7 +19,14 @@ var context = canvas.getContext('2d');
 // Get access to the camera!
 if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
     // Not adding `{ audio: true }` since we only want video now
-    navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
+    var configuracion = {
+        video: {
+            facingMode: { 
+                exact: 'environment'
+            }
+        },
+    };
+    navigator.mediaDevices.getUserMedia(configuracion).then(function(stream) {
         //video.src = window.URL.createObjectURL(stream);
         video.srcObject = stream;
         video.play();
