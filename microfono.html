@@ -19,7 +19,7 @@ navigator.mediaDevices.getUserMedia({ audio: true, video: false }).then(function
     var input = context.createMediaStreamSource(stream)
     var processor = context.createScriptProcessor(1024,1,1);
 
-    source.connect(processor);
+    input.connect(processor);
     processor.connect(context.destination);
 
     processor.onaudioprocess = function(e){
