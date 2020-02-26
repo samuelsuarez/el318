@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Parlante</title>
+  </head>
+  <body>
+    <h1>Parlante</h1>
+
+    <p>Encoding a pure sine wave to an Opus file </p>
+    <button id="sonar">Sonar</button><br>
+    <audio controls id="audio"></audio>
+    <script>
+var osc,mediaRecorder;
+var chunks = [];
+var clicked = false;
+
+document.getElementById("sonar").onclick = function(){
+    var f = 440;
+    var d = 1;
+    var t = 4;
+    var fm = 44100;
+    var son = crearSonido(f,d,t,fm);
+    var blob = bufferToWaveBlob(son,fm);
+    document.querySelector("audio").src = URL.createObjectURL(blob);
+    document.getElementById("audio").play();
+};
+
+function crearSonido(tono,caida,duracion,fmuestreo){
+    var lng = duracion * fmuestreo;
+    var dt = 1/fmuestreo;
+    var sonido = new Array(lng);
+    var i,t;
+    var w = tono*2*Math.PI;
+    for (i=0,t=0;i<lng;i++,t+=dt){
+        sonido[i] = Math.sin(w*t)*(Math.exp(-t*4.6/caida));
+    }
+    return sonido;
+}
+
+function bufferToWaveBlob(sonido,_sampleRate) {
+    function setUint16(data) {
+		view.setUint16(pos, data, true);
+		pos += 2;
+	}
+
+	function setUint32(data) {
+		view.setUint32(pos, data, true);
+		pos += 4;
+	}
+    var len = sonido.length;
+    var numOfChan = 1;
+    var sampleRate = _sampleRate;
+	var length = len * numOfChan * 2 + 44;
+	var buffer = new ArrayBuffer(length);
+	var view = new DataView(buffer);
+	var i;
+	var sample;
+	var offset = 0;
+	var pos = 0;
+
+	// write WAVE header
+	setUint32(0x46464952);                         // "RIFF"
+	setUint32(length - 8);                         // file length - 8
+	setUint32(0x45564157);                         // "WAVE"
+
+	setUint32(0x20746d66);                         // "fmt " chunk
+	setUint32(16);                                 // length = 16
+	setUint16(1);                                  // PCM (uncompressed)
+	setUint16(numOfChan);
+	setUint32(sampleRate);
+	setUint32(sampleRate * 2 * numOfChan);         // avg. bytes/sec
+	setUint16(numOfChan * 2);                      // block-align
+	setUint16(16);                                 // 16-bit (hardcoded in this demo)
+
+	setUint32(0x61746164);                         // "data" - chunk
+	setUint32(length - pos - 4);                   // chunk length
+
+	while(pos<length) {
+		sample = Math.max(-1, Math.min(1, sonido[offset])); // clamp
+		sample = (0.5 + sample < 0 ? sample * 32768 : sample * 32767)|0; // scale to 16-bit signed int
+		view.setInt16(pos, sample, true);          // write 16-bit sample
+		pos += 2;
+		offset++                                     // next source sample
+	}
+
+	// create Blob
+	return new Blob([buffer], {type: "audio/wav"});
+}
+    </script>
+  </body>
+</html>
