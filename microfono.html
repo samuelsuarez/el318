@@ -6,52 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
-    <video id="video" width="480" height="640" autoplay style="display:none;"></video>
+    <audio id="player" controls></audio>
     <canvas id="canvas" width="480" height="640"></canvas>
     <script>
 //https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/Using_HTML5_Audio_Video/PlayingandSynthesizingSounds/PlayingandSynthesizingSounds.html
 
 window.AudioContext = window.AudioContext || window.webkitAudioContext;
+var player = document.getElementById('player');
 
-var video = document.getElementById('video');
-var canvas = document.getElementById('canvas');
-var context = canvas.getContext('2d');
+navigator.mediaDevices.getUserMedia({ audio: true, video: false }).then(function(stream) {
+    var context = new AudioContext();
+    var input = context.createMediaStreamSource(stream)
+    var processor = context.createScriptProcessor(1024,1,1);
 
-// Get access to the camera!
-if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-    var configuracion = {
-        audio: true,
-        video: false,
+    source.connect(processor);
+    processor.connect(context.destination);
+
+    processor.onaudioprocess = function(e){
+        // Do something with the data, i.e Convert this to WAV
+        console.log(e.inputBuffer);
     };
-    navigator.mediaDevices.getUserMedia(configuracion).then(function(stream) {
-        var audioCtx = new AudioContext();
-        var input = audioCtx.createMediaStreamSource(stream)
-        var processor = audioCtx.createScriptProcessor(1024,1,1);
-
-        input.connect(processor);
-        processor.connect(audioCtx.destination);
-
-        processor.onaudioprocess = function(e){
-          // Do something with the data, i.e Convert this to WAV
-          console.log(e.inputBuffer);
-        };
-
-    });
-}
-
-setInterval (function(){
-    context.drawImage(video, 0, 0, 480, 640);
-    var imgData = context.getImageData(0, 0, canvas.width, canvas.height);
-    var lng = imgData.data.length;
-    var i;
-    for (i=0; i<lng; i+=4){
-        imgData.data[i]   = 255 - imgData.data[i];
-        imgData.data[i+1] = 255 - imgData.data[i+1];
-        imgData.data[i+2] = 255 - imgData.data[i+2];
-        imgData.data[i+3] = 255;
-    }
-    context.putImageData(imgData, 0, 0);
-},200);
+});
     </script>
   </body>
 </html>
