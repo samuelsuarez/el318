@@ -7,24 +7,41 @@
   </head>
   <body>
     <audio id="player" controls></audio>
-    <canvas id="canvas" width="480" height="640"></canvas>
+    <canvas id="canvas" width="512" height="640"></canvas>
     <script>
-//https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/Using_HTML5_Audio_Video/PlayingandSynthesizingSounds/PlayingandSynthesizingSounds.html
-
+/*
+https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/Using_HTML5_Audio_Video/PlayingandSynthesizingSounds/PlayingandSynthesizingSounds.html
+https://developer.mozilla.org/en-US/docs/Web/API/AudioContext
+*/
 window.AudioContext = window.AudioContext || window.webkitAudioContext;
-var player = document.getElementById('player');
+
+var canvas = document.getElementById('canvas');
+var ctxCanv = canvas.getContext('2d');
+
 
 navigator.mediaDevices.getUserMedia({ audio: true, video: false }).then(function(stream) {
-    var context = new AudioContext();
-    var input = context.createMediaStreamSource(stream)
-    var processor = context.createScriptProcessor(1024,1,1);
+    var ctxAud = new AudioContext();
+    var input = ctxAud.createMediaStreamSource(stream)
+    var processor = ctxAud.createScriptProcessor(512,1,1);
 
     input.connect(processor);
-    processor.connect(context.destination);
+    processor.connect(ctxAud.destination);
 
     processor.onaudioprocess = function(e){
-        // Do something with the data, i.e Convert this to WAV
-        console.log(e.inputBuffer);
+        var inBuf = e.inputBuffer;
+        var datos = inBuf.getChannelData(0);
+        
+        ctxCanv.fillStyle = 'white';
+        ctxCanv.fillRect(0, 0, 512, 640);
+        
+        ctxCanv.fillStyle = 'black';
+        ctxCanv.beginPath();
+        ctxCanv.moveTo(0, datos[0]);
+        var i;
+        for (i=1; i<512; i++){
+            ctxCanv.lineTo(i, datos[i]*500 + 320);
+        }
+        ctxCanv.stroke();
     };
 });
     </script>
