@@ -16,12 +16,28 @@
 Your browser does not support the HTML5 canvas tag.
 </canvas>
 
+ <canvas id="rocaroja" width="728" height="639" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.
+</canvas>
+   
+
 <script>
 window.onload = function() {
     var canvas = document.getElementById("myCanvas");
     var ctx = canvas.getContext("2d");
     var img = document.getElementById("scream");
    ctx.drawImage(img, 0, 0, 900, 550);
+};
+
+    
+</script>
+    
+<script>
+window.onload = function() {
+    var canvas = document.getElementById("rocaroja");
+    var ctx = canvas.getContext("2d");
+    var img = document.getElementById("scream");
+   ctx.drawImage(img, 820, 500, 20, 20);
 };
 
     
