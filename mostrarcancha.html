@@ -12,8 +12,12 @@
 <img id="tijerablue" src="tijerab.png" style="display:none">
 <img id="circulorojo" src="circulor.png" style="display:none">
 <img id="circuloblue" src="circulob.png" style="display:none">
-<img id="cristiano" src="cr7.png" style="display:none">
-<img id="messi" src="messi1.png" style="display:none">
+<img id="barcelona" src="barcelona.png" style="display:none">
+<img id="madrid" src="realmadrid.png" style="display:none">
+<img id="psg" src="psg.png" style="display:none">
+<img id="liverpool" src="liverpool.png" style="display:none">
+<img id="marcador" src="marcador.png" style="display:none">
+<img id="cuadro" src="cuadro.png" style="display:none">
 
 
 
@@ -23,8 +27,15 @@
 Your browser does not support the HTML5 canvas tag.
 </canvas>
    
+ 
 
 <script>
+
+var estadoclick = document.getElementById("estadoclick");
+
+   
+   
+   
 window.onload = function() {
       var canvas = document.getElementById("myCanvas");
       var ctx = canvas.getContext("2d");
@@ -42,17 +53,28 @@ window.onload = function() {
       ctx.drawImage(img, 146, 485, 52, 52);
       var img = document.getElementById("tijerablue");
       ctx.drawImage(img, 211, 485, 52, 52);
-      var img = document.getElementById("circulorojo");
-      ctx.drawImage(img, 710, 212, 110, 110);
-      var img = document.getElementById("circuloblue");
-      ctx.drawImage(img, 91, 212, 110, 110);
-      var img = document.getElementById("messi");
-      ctx.drawImage(img, 96, 217, 100, 100);
-      var img = document.getElementById("cristiano");
-      ctx.drawImage(img, 715, 217, 100, 100);
+      var img = document.getElementById("cuadro");
+      ctx.drawImage(img, 300, 125, 300, 300);
+      var img = document.getElementById("barcelona");
+      ctx.drawImage(img, 310, 135, 130, 130);
+      var img = document.getElementById("madrid");
+      ctx.drawImage(img, 450, 275, 130, 130);
+      var img = document.getElementById("liverpool");
+      ctx.drawImage(img, 310, 285, 130, 130);
+      var img = document.getElementById("psg");
+      ctx.drawImage(img, 450, 285, 130, 130); 
+      
+       
 };
 
-    
+
+cuadro.onmousedown = function(e) {
+  var x = e.clientX;
+  var y = e.clientY;
+  var coor = "Abajo: (" + x + "," + y + ")";
+  estadoclick.innerHTML = coor;
+};   
+
 </script>
     
 
