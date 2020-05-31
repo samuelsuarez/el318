@@ -66,19 +66,27 @@ window.onload = function() {
       var img = document.getElementById("marcador");
       ctx.drawImage(img, 225, 10, 450, 40); 
       
+        myCanvas.onmousedown = function(e) {
+          var x = e.clientX;
+          var y = e.clientY;
+          var coor = "Abajo: (" + x + "," + y + ")";
+          estadoclick.innerHTML = coor;
+          if (coor >= 320 && coor <= 430)
+          liverpool.imagenNO;
+}; 
        
 };
 
 
    
-myCanvas.onmousedown = function(e) {
+/*myCanvas.onmousedown = function(e) {
   var x = e.clientX;
   var y = e.clientY;
   var coor = "Abajo: (" + x + "," + y + ")";
   estadoclick.innerHTML = coor;
   if (coor >= 320 && coor <= 430)
      liverpool.imagenNO;
-}; 
+}; *\
 
   
 </script>
