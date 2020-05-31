@@ -18,7 +18,7 @@
 <img id="liverpool" src="liverpool.png" style="display:none">
 <img id="marcador" src="marcador.png" style="display:none">
 <img id="cuadro" src="cuadro.png" style="display:none">
-
+<p id="estadoclick"></p>
 
 
 
@@ -74,42 +74,17 @@ cuadro.onmousedown = function(e) {
   var x = e.clientX;
   var y = e.clientY;
   var coor = "Abajo: (" + x + "," + y + ")";
-  //estadoclick.innerHTML = coor;
-  if (coor >= 320 && coor <= 430)
-  {
-     window.onload = function() {
-      var canvas = document.getElementById("myCanvas");
-      var ctx = canvas.getContext("2d");
-      var img = document.getElementById("scream");
-      ctx.drawImage(img, 0, 0, 900, 550);
-      var img = document.getElementById("rocaroja");
-      ctx.drawImage(img, 782, 485, 50, 50);
-      var img = document.getElementById("papelrojo");
-      ctx.drawImage(img, 712, 485, 52, 52);
-      var img = document.getElementById("tijeraroja");
-      ctx.drawImage(img, 645, 485, 52, 52);
-      var img = document.getElementById("rocablue");
-      ctx.drawImage(img, 76, 485, 50, 50);
-      var img = document.getElementById("papelblue");
-      ctx.drawImage(img, 146, 485, 52, 52);
-      var img = document.getElementById("tijerablue");
-      ctx.drawImage(img, 211, 485, 52, 52);
-      //var img = document.getElementById("cuadro");
-      //ctx.drawImage(img, 300, 125, 300, 300);
-      var img = document.getElementById("barcelona");
-      ctx.drawImage(img, 310, 135, 130, 130);
-      //var img = document.getElementById("realmadrid");
-      //ctx.drawImage(img, 450, 135, 130, 130);
-      //var img = document.getElementById("liverpool");
-      //ctx.drawImage(img, 310, 285, 130, 130);
-      //var img = document.getElementById("psg");
-      //ctx.drawImage(img, 450, 285, 130, 130); 
-      var img = document.getElementById("marcador");
-      ctx.drawImage(img, 225, 10, 450, 40); 
-      };
-  };   
+  estadoclick.innerHTML = coor;
 };   
+ 
+cuadro.onmouseup = function(e) {
+  var x = e.clientX;
+  var y = e.clientY;
+  var coor = "Arriba: (" + x + "," + y + ")";
+  estadoclick.innerHTML = coor;
+};
 
+  
 </script>
     
 
