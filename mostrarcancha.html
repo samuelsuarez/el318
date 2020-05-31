@@ -63,6 +63,8 @@ window.onload = function() {
       ctx.drawImage(img, 310, 285, 130, 130);
       var img = document.getElementById("psg");
       ctx.drawImage(img, 450, 285, 130, 130); 
+      var img = document.getElementById("marcador");
+      ctx.drawImage(img, 225, 10, 450, 75); 
       
        
 };
@@ -72,7 +74,8 @@ cuadro.onmousedown = function(e) {
   var x = e.clientX;
   var y = e.clientY;
   var coor = "Abajo: (" + x + "," + y + ")";
-  estadoclick.innerHTML = coor;
+  //estadoclick.innerHTML = coor;
+  //if ()
 };   
 
 </script>
