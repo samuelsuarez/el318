@@ -70,14 +70,14 @@ window.onload = function() {
 };
 
 
-cuadro.onmousedown = function(e) {
+myCanvas.onmousedown = function(e) {
   var x = e.clientX;
   var y = e.clientY;
   var coor = "Abajo: (" + x + "," + y + ")";
   estadoclick.innerHTML = coor;
 };   
  
-cuadro.onmouseup = function(e) {
+myCanvas.onmouseup = function(e) {
   var x = e.clientX;
   var y = e.clientY;
   var coor = "Arriba: (" + x + "," + y + ")";
