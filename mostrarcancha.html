@@ -67,8 +67,8 @@ window.onload = function() {
       ctx.drawImage(img, 225, 10, 450, 40);     
 };
 
-function imagenNO(){
-   visibility: hidden;
+function imagenNO(a){
+   document.getElementById("a").style.visibility = "hidden";
 }
    
 myCanvas.onmousedown = function(e) {
@@ -80,7 +80,7 @@ myCanvas.onmousedown = function(e) {
     {
        if (y >= 140 && y <= 260)
        {
-          getElementById("liverpool").imagenNO();
+          imagenNO(liverpool);
        };
     };
        
