@@ -53,7 +53,7 @@ window.onload = function() {
       ctx.drawImage(img, 146, 485, 52, 52);
       var img = document.getElementById("tijerablue");
       ctx.drawImage(img, 211, 485, 52, 52);
-      var img = document.getElementById("cuadro");
+      /*var img = document.getElementById("cuadro");
       ctx.drawImage(img, 300, 125, 300, 300);
       var img = document.getElementById("barcelona");
       ctx.drawImage(img, 310, 135, 130, 130);
@@ -64,30 +64,24 @@ window.onload = function() {
       var img = document.getElementById("psg");
       ctx.drawImage(img, 450, 285, 130, 130); 
       var img = document.getElementById("marcador");
-      ctx.drawImage(img, 225, 10, 450, 40);     
+      ctx.drawImage(img, 225, 10, 450, 40); */ 
 };
 
-function imagenNO(a){
-   document.getElementById("a").style.visibility = "hidden";
-}
+
    
 myCanvas.onmousedown = function(e) {
   var x = e.clientX;
   var y = e.clientY;
   var coor = "Abajo: (" + x + "," + y + ")";
   estadoclick.innerHTML = coor;
-    if (x >= 320 && x <= 430)
+    if (x >= 645 && x <= 697 && y >= 485 && y <= 537)
     {
-       if (y >= 140 && y <= 260)
-       {
-          imagenNO(liverpool);
-       };
+      
     };
        
     
 }; 
 
-  B
 </script>
     
 
