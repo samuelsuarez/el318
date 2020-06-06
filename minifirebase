@@ -1,0 +1,21 @@
+firebase.database().ref('canal/' + canal).update({
+        : mieleccion,
+        
+      }, function(error) {
+        if (error) {
+          alert("Error");
+        } else {
+          document.getElementById("mensaje").value = "";
+        }
+      }
+      
+      //ref es el que indica donde lo va a guardar
+      //push no lo vamos a utilizar, guarda un dato a continuacion de otro, osea un vector de datos,
+      //put borra todo y actualiza
+      //post modifica lo que corresponde sin borrar lo demas
+      //set es el que guarda el valor
+      //once lee una sola vez el valor
+      //on es el que vamos a utilizar en vez de once
+      //snaoshot.val es el que da el valor del doc
+      //Math.random() --> numero aleatorio
+      //cuando escriba
