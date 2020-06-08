@@ -11,6 +11,8 @@
 <img id="papelblue" src="papelb.png" style="display:none">
 <img id="tijerablue" src="tijerab.png" style="display:none">
 <img id="tijeraRdorada" src="tijerary.png" style="display:none">
+<img id="rocaRdorada" src="rocary.png" style="display:none">
+<img id="papelRdorado" src="papelry.png" style="display:none">   
 <img id="circulorojo" src="circulor.png" style="display:none">
 <img id="circuloblue" src="circulob.png" style="display:none">
 <img id="barcelona" src="barcelona.png" style="display:none">
@@ -76,8 +78,15 @@ window.onload = function() {
 function pintarmijugada (mieleccion){
   if (mieleccion == "tijera"){
      var img = document.getElementById("tijeraRdorada");
-     ctx.drawImage(img, 625, 225, 100, 100);
+     ctx.drawImage(img, 600, 200, 150, 150);
   }
+  if (mieleccion == "roca"){
+     var img = document.getElementById("rocaRdorada");
+     ctx.drawImage(img, 600, 200, 150, 150);
+  
+  if (mieleccion == "papel"){
+     var img = document.getElementById("papelRdorado");
+     ctx.drawImage(img, 600, 200, 150, 150);   
 };
    
 myCanvas.onmousedown = function(e) {
@@ -85,11 +94,18 @@ myCanvas.onmousedown = function(e) {
   var y = e.clientY;
   var coor = "Abajo: (" + x + "," + y + ")";
   estadoclick.innerHTML = coor;
-    if (x >= 645 && x <= 697 && y >= 485 && y <= 537)
-    {
+   if (x >= 645 && x <= 697 && y >= 485 && y <= 537){
       jugada = "tijera";
-    };
- 
+   };
+    
+   if (x >= 712 && x <= 764 && y >= 485 && y <= 537){
+      jugada = "papel";
+   };
+   
+   if (x >= 782 && x <= 832 && y >= 485 && y <= 537){
+      jugada = "roca";
+   };
+   
   pintarmijugada (jugada);  
 }; 
 
