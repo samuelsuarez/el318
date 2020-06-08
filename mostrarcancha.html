@@ -34,6 +34,7 @@ Your browser does not support the HTML5 canvas tag.
 
 var estadoclick = document.getElementById("estadoclick");
 var ctx;
+var jugada;   
    
    
    
@@ -68,17 +69,20 @@ window.onload = function() {
       ctx.drawImage(img, 450, 285, 130, 130); 
       var img = document.getElementById("marcador");
       ctx.drawImage(img, 225, 10, 450, 40); */ 
+      
+      
 };
    
 function pintarmijugada (mieleccion){
-  if (mieleccion == "tijera")
-      
+  if (mieleccion == "tijera"){
+     var img = document.getElementById("tijeraRdorada");
+     ctx.drawImage(img, 211, 485, 52, 52);
+  }
 };
    
 myCanvas.onmousedown = function(e) {
   var x = e.clientX;
   var y = e.clientY;
-  var jugada;
   var coor = "Abajo: (" + x + "," + y + ")";
   estadoclick.innerHTML = coor;
     if (x >= 645 && x <= 697 && y >= 485 && y <= 537)
@@ -86,7 +90,7 @@ myCanvas.onmousedown = function(e) {
       jugada = "tijera";
     };
  
-    
+  pintarmijugada (jugada);  
 }; 
 
 </script>
