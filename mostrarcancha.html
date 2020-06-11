@@ -157,17 +157,21 @@ myCanvas.onmousedown = function(e) {
   var x = e.clientX;
   var y = e.clientY;
   var mijugada;
+  var mia = false;
   var sujugada;
   if (x >= 645 && x <= 697 && y >= 485 && y <= 537){
       mijugada = "tijera";
+      mia = true;
    };
     
   if (x >= 712 && x <= 764 && y >= 485 && y <= 537){
       mijugada = "papel";
+      mia = true;
    };
    
   if (x >= 782 && x <= 832 && y >= 485 && y <= 537){
       mijugada = "roca";
+      mia = true;
    };
   if ( x >= 0 && x <= 60 && y >= 0 && y <= 70){
       var img = document.getElementById("scream");
@@ -189,7 +193,9 @@ myCanvas.onmousedown = function(e) {
       var img = document.getElementById("marcador");
       ctx.drawImage(img, 225, 10, 450, 40); 
    };
-  pintarmijugada (mijugada); 
+   if (mia == true){
+   pintarmijugada (mijugada);
+   };
  
 }; 
 
