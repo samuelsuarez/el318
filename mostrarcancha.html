@@ -164,9 +164,10 @@ myCanvas.onmousedown = function(e) {
   var x = e.clientX;
   var y = e.clientY;
   var mijugada;
+  var sujugada;  
   var mia = false;
   var suya = false;
-  var sujugada;
+  
   if (x >= 645 && x <= 697 && y >= 485 && y <= 537){
       mijugada = "tijeraR";
       mia = true;
@@ -218,7 +219,7 @@ myCanvas.onmousedown = function(e) {
       ctx.drawImage(img, 225, 10, 450, 40); 
    };
    if (mia == true && suya == true){
-   pintarmijugada (mijugada);
+   pintarmijugada (mijugada, sujugada);
    };
  
 }; 
