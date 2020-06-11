@@ -28,8 +28,11 @@
 <img id="papelblue" src="papelb.png" style="display:none">
 <img id="tijerablue" src="tijerab.png" style="display:none">
 <img id="tijeraRdorada" src="tijerary.png" style="display:none">
+<img id="tijeraBdorada" src="tijeraby.png" style="display:none">    
 <img id="rocaRdorada" src="rocary.png" style="display:none">
-<img id="papelRdorado" src="papelry.png" style="display:none">   
+<img id="rocaBdorada" src="rocaby.png" style="display:none">
+<img id="papelRdorado" src="papelry.png" style="display:none">
+<img id="papelBdorado" src="papelby.png" style="display:none">    
 <img id="circulorojo" src="circulor.png" style="display:none">
 <img id="circuloblue" src="circulob.png" style="display:none">
 <img id="boton" src="boton.png" style="display:none">
@@ -130,19 +133,23 @@ window.onload = function() {
    
 };*/
    
-function pintarmijugada (mieleccion){
-  if (mieleccion == "tijera"){
+function pintarmijugada (mieleccion, sueleccion){
+  if (mieleccion == "tijeraR"){
      var img = document.getElementById("tijeraRdorada");
      ctx.drawImage(img, 600, 200, 150, 150);
   };
-  if (mieleccion == "roca"){
+  if (mieleccion == "rocaR"){
      var img = document.getElementById("rocaRdorada");
      ctx.drawImage(img, 600, 200, 150, 150);
   };
-  if (mieleccion == "papel"){
+  if (mieleccion == "papelR"){
      var img = document.getElementById("papelRdorado");
      ctx.drawImage(img, 600, 200, 150, 150);   
-  }; 
+  };
+  if (sueleccion == "tijeraB"){
+     var img = document.getElementById("tijeraBdorada");
+     ctx.drawImage(img, 600, 200, 150, 150);
+  };
 };
    
  /*function jugar (mia, suya){
@@ -158,21 +165,38 @@ myCanvas.onmousedown = function(e) {
   var y = e.clientY;
   var mijugada;
   var mia = false;
+  var suya = false;
   var sujugada;
   if (x >= 645 && x <= 697 && y >= 485 && y <= 537){
-      mijugada = "tijera";
+      mijugada = "tijeraR";
       mia = true;
    };
     
   if (x >= 712 && x <= 764 && y >= 485 && y <= 537){
-      mijugada = "papel";
+      mijugada = "papelR";
       mia = true;
    };
    
   if (x >= 782 && x <= 832 && y >= 485 && y <= 537){
-      mijugada = "roca";
+      mijugada = "rocaR";
       mia = true;
    };
+  
+  if (x >= 76 && x <= 126 && y >= 485 && y <= 537){
+      mijugada = "rocaB";
+      suya = true;
+   };
+   
+   if (x >= 146 && x <= 198 && y >= 485 && y <= 537){
+      mijugada = "papelB";
+      suya = true;
+   };
+   
+   if (x >= 211 && x <= 263 && y >= 485 && y <= 537){
+      mijugada = "tijeraB";
+      suya = true;
+   };
+    
   if ( x >= 0 && x <= 60 && y >= 0 && y <= 70){
       var img = document.getElementById("scream");
       ctx.drawImage(img, 0, 0, 900, 550);
@@ -193,7 +217,7 @@ myCanvas.onmousedown = function(e) {
       var img = document.getElementById("marcador");
       ctx.drawImage(img, 225, 10, 450, 40); 
    };
-   if (mia == true){
+   if (mia == true && suya == true){
    pintarmijugada (mijugada);
    };
  
