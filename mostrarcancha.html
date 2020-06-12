@@ -106,8 +106,9 @@ window.onload = function() {
 
 
    
-function ganador (mia, suya, x){
-   if (mia == "rocaR" && suya == "tijeraB"){
+function ganador (mia, suya){
+    var x;
+    if (mia == "rocaR" && suya == "tijeraB"){
       return x = 1;
    }:
    if (mia == "tijeraR" && suya == "papelB"){
@@ -216,7 +217,7 @@ function pintarsujugada (sueleccion){
    
  function jugar (mia, suya){
     var x;
-    ganador (mia, suya, x);
+    x = ganador (mia, suya);
     if (x = 1){
         var img = document.getElementById("pelota");
         ctx.drawImage(img, 410, 235, 150, 150);
