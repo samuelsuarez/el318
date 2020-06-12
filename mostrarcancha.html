@@ -133,12 +133,10 @@ window.onload = function() {
    
 };*/
    
-function pintarmijugada (mieleccion, sueleccion){
-  if (mieleccion == "tijeraR" && sueleccion == "tijeraB"){
+function pintarmijugada (mieleccion){
+  if (mieleccion == "tijeraR"){
      var img = document.getElementById("tijeraRdorada");
      ctx.drawImage(img, 600, 200, 150, 150);
-     var img = document.getElementById("tijeraBdorada");
-     ctx.drawImage(img, 150, 300, 150, 150); 
   };
   if (mieleccion == "rocaR"){
      var img = document.getElementById("rocaRdorada");
@@ -149,6 +147,21 @@ function pintarmijugada (mieleccion, sueleccion){
      ctx.drawImage(img, 600, 200, 150, 150);   
   };
 };
+
+function pintarsujugada (sueleccion){
+  if (sueleccion == "tijeraB"){
+     var img = document.getElementById("tijeraBdorada");
+     ctx.drawImage(img, 150, 300, 150, 150); 
+  };
+  if (sueleccion == "rocaB"){
+     var img = document.getElementById("rocaBdorada");
+     ctx.drawImage(img, 150, 300, 150, 150);
+  };
+  if (sueleccion == "papelB"){
+     var img = document.getElementById("papelBdorado");
+     ctx.drawImage(img, 150, 300, 150, 150);   
+  };
+};    
    
  /*function jugar (mia, suya){
     var bool = x;
@@ -165,7 +178,6 @@ myCanvas.onmousedown = function(e) {
   var sujugada;  
   var mia = false;
   var suya = false;
-  while (mia == true && suya == true){
       if (x1 >= 645 && x1 <= 697 && y1 >= 485 && y1 <= 537){
           mijugada = "tijeraR";
           mia = true;
@@ -193,8 +205,7 @@ myCanvas.onmousedown = function(e) {
       if (x >= 211 && x <= 263 && y >= 485 && y <= 537){
           sujugada = "tijeraB";
           suya = true;
-      };
-  };    
+      };    
   if ( x >= 0 && x <= 60 && y >= 0 && y <= 70){
       var img = document.getElementById("scream");
       ctx.drawImage(img, 0, 0, 900, 550);
@@ -217,7 +228,8 @@ myCanvas.onmousedown = function(e) {
       };
       
    if (mia == true && suya == true){
-       pintarmijugada (mijugada, sujugada);
+       pintarmijugada (mijugada);
+       pintarsujugada (sujugada);
    };
  
 }; 
