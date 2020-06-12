@@ -153,22 +153,34 @@ function pintar (px,py){
       ctx.drawImage(img, px, py, 450, 40);
 };
 
-function moverAd (px, py, vx, vy){
-    px = px - vx;
+function moverAd (px, py){
+    var vx = 5;
+    var vy;
     var py1;
     var py2;
-    py2 = Math.random();
-    
-    if(py > py2){
-      py1 = py - py2;  
-    }; else{
-      py1 = py2 - py;  
-    };
-    vy = (py1*100)/7500;
-    if (if(py > py2){
-      py = py - vy;  
-    }; else{
-      py = py + vy;  
+    py2 = Math.floor(Math.random() * 551);
+    while (px >= px - 225){
+        if(py > py2){
+            py1 = py - py2;
+            vy = (py1*100)/4500;
+            if (if(py > py2){
+                px = px - vx;
+                py = py - vy;  
+            }; else{
+                px = px - vx;
+                py = py + vy;  
+            };
+        }; else{
+            py1 = py2 - py; 
+            vy = (py1*100)/4500;
+            if (if(py > py2){
+                px = px - vx;
+                py = py - vy;  
+            }; else{
+                px = px - vx;
+                py = py + vy;  
+            };
+        };
     };
 };
     
@@ -204,16 +216,12 @@ function pintarsujugada (sueleccion){
    
  function jugar (mia, suya, px, py){
     var x;
-    var pX = 0;
-    var vx = 3;
-    var vy; 
     ganador (mia, suya, x);
     if (Boolean(x) == true){
-        
-        while (px >= px - 225;){
-            moverAd (px, py, vx, vy);
-            pintar (px,py);
-        };
+            setInterval (function(){
+                moverAd (px, py);
+                pintar (px,py);
+            },100);
     };
  };
  
