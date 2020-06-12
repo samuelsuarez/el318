@@ -176,35 +176,35 @@ myCanvas.onmousedown = function(e) {
   var y = e.clientY;
   var mijugada;
   var sujugada;  
-  var mia = false;
-  var suya = false;
+  //var mia = false;
+  //var suya = false;
       if (x >= 645 && x <= 697 && y >= 485 && y <= 537){
           mijugada = "tijeraR";
-          mia = true;
+          //mia = true;
       };
       
       if (x >= 712 && x <= 764 && y >= 485 && y <= 537){
           mijugada = "papelR";
-          mia = true;
+          //mia = true;
       };
       
       if (x >= 782 && x <= 832 && y >= 485 && y <= 537){
           mijugada = "rocaR";
-          mia = true;
+          //mia = true;
       };
       
       if (x >= 76 && x <= 126 && y >= 485 && y <= 537){
           sujugada = "rocaB";
-          suya = true;
+          //suya = true;
       };
       if (x >= 146 && x <= 198 && y >= 485 && y <= 537){
           sujugada = "papelB";
-          suya = true;
+          //suya = true;
       };
       
       if (x >= 211 && x <= 263 && y >= 485 && y <= 537){
           sujugada = "tijeraB";
-          suya = true;
+          //suya = true;
       };    
   if ( x >= 0 && x <= 60 && y >= 0 && y <= 70){
       var img = document.getElementById("scream");
@@ -227,10 +227,10 @@ myCanvas.onmousedown = function(e) {
       ctx.drawImage(img, 225, 10, 450, 40); 
       };
       
-   if (mia == true && suya == true){
+   //if (mia == true && suya == true){
        pintarmijugada (mijugada);
        pintarsujugada (sujugada);
-   };
+   //};
  
 }; 
 
