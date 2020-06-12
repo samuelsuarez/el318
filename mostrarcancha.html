@@ -35,6 +35,7 @@
 <img id="papelBdorado" src="papelby.png" style="display:none">    
 <img id="circulorojo" src="circulor.png" style="display:none">
 <img id="circuloblue" src="circulob.png" style="display:none">
+<img id="pelota" src="pelota.png" style="display:none">    
 <img id="boton" src="boton.png" style="display:none">
 <img id="marcador" src="marcador.png" style="display:none">
 <p id="estadoclick"></p>
@@ -105,29 +106,29 @@ window.onload = function() {
 
 
    
-/*bool function ganador (mia, suya){
-   if (mia == "roca" && suya == "tijera"){
-      return x=true;
+function ganador (mia, suya, x){
+   if (mia == "rocaR" && suya == "tijeraB"){
+      x = 1;
    }:
-   if (mia == "tijera" && suya == "papel"){
-      return x=true;
+   if (mia == "tijeraR" && suya == "papelB"){
+      x= 1;
    };
-   if (mia == "papel" && suya == "roca"){
-      return x=true;
+   if (mia == "papelR" && suya == "rocaB"){
+      x= 1;
    };
-   if (mia == "papel" && suya == "tijera"){
-      return x=false;
+   if (mia == "papelR" && suya == "tijeraB"){
+      x= 0;
    };
-   if (mia == "tijera" && suya == "roca"){
-      return x=false;
+   if (mia == "tijeraR" && suya == "rocaB"){
+      x= 0;
    };
-   if (mia == "roca" && suya == "papel"){
-      return x=false;
+   if (mia == "rocaR" && suya == "papelB"){
+      x= 0;
    };else{
-      return x=false;
+      x= 0;
    };
    
-};*/
+};
    
 /*function trazadoganador (x,y){
    
@@ -163,13 +164,13 @@ function pintarsujugada (sueleccion){
   };
 };    
    
- /*function jugar (mia, suya){
-    var bool = x;
-    x = ganador (mia, suya);
-    if (x==true){
+ function jugar (mia, suya){
+    var x;
+    ganador (mia, suya, x);
+    if (Boolean(x) == true){
        
     };
- };*/
+ };
  
 myCanvas.onmousedown = function(e) {
   var x = e.clientX;
