@@ -106,7 +106,7 @@ window.onload = function() {
 
 
    
-/*function ganador (mia, suya, x){
+function ganador (mia, suya, x){
    if (mia == "rocaR" && suya == "tijeraB"){
       x = 1;
    }:
@@ -128,7 +128,7 @@ window.onload = function() {
       x= 0;
    };
    
-};*/
+};
    
 /*function pintar (px,py){
       var img = document.getElementById("scream");
@@ -214,14 +214,17 @@ function pintarsujugada (sueleccion){
   };
 };    
    
- /*function jugar (mia, suya, px, py){
-    var x;
+ function jugar (mia, suya, px, py){
+    var x = 1;
     ganador (mia, suya, x);
     if (Boolean(x) == true){
-            setInterval (function(){
+        var img = document.getElementById("pelota");
+        ctx.drawImage(img, 410, 235, 150, 150);
+            
+        /*setInterval (function(){
                 moverAd (px, py);
                 pintar (px,py);
-            },100);
+            },100);*/
     };
  };*/
  
