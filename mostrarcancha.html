@@ -106,7 +106,7 @@ window.onload = function() {
 
 
    
-function ganador (mia, suya, x){ 
+/*function ganador (mia, suya, x){ 
    if (mia == "rocaR" && suya == "tijeraB"){
       return x = 1;
    }:
@@ -128,7 +128,7 @@ function ganador (mia, suya, x){
       return x= 0;
    };
    
-};
+};*/
    
 /*function pintar (px,py){
       var img = document.getElementById("scream");
@@ -214,7 +214,7 @@ function pintarsujugada (sueleccion){
   };
 };    
    
- function jugar (mia, suya){
+ /*function jugar (mia, suya){
     var a = 1;
     var x =ganador (mia, suya, a);
     if (x = 1){
@@ -224,9 +224,9 @@ function pintarsujugada (sueleccion){
         /*setInterval (function(){
                 moverAd (px, py);
                 pintar (px,py);
-            },100);*/
+            },100);
     };
- };
+ };*/
  
 myCanvas.onmousedown = function(e) {
   var x = e.clientX;
@@ -284,7 +284,9 @@ myCanvas.onmousedown = function(e) {
       ctx.drawImage(img, 0, 0, 50, 50);
       var img = document.getElementById("marcador");
       ctx.drawImage(img, 225, 10, 450, 40);
-      jugar (mijugada, sujugada);
+      var img = document.getElementById("pelota");
+      ctx.drawImage(img, 410, 235, 150, 150);
+      //jugar (mijugada, sujugada);
       };
       
    //if (mia == true && suya == true){
