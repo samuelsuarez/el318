@@ -185,30 +185,30 @@ window.onload = function() {
 };*/
     
 function pintarmijugada (mieleccion){
-  if (mieleccion == "tijeraR"){
+  if (mieleccion == "tijera"){
      var img = document.getElementById("tijeraRdorada");
      ctx.drawImage(img, 600, 200, 150, 150);
   };
-  if (mieleccion == "rocaR"){
+  if (mieleccion == "roca"){
      var img = document.getElementById("rocaRdorada");
      ctx.drawImage(img, 600, 200, 150, 150);
   };
-  if (mieleccion == "papelR"){
+  if (mieleccion == "papel"){
      var img = document.getElementById("papelRdorado");
      ctx.drawImage(img, 600, 200, 150, 150);   
   };
 };
 
 function pintarsujugada (sueleccion){
-  if (sueleccion == "tijeraB"){
+  if (sueleccion == "tijera"){
      var img = document.getElementById("tijeraBdorada");
      ctx.drawImage(img, 150, 200, 150, 150); 
   };
-  if (sueleccion == "rocaB"){
+  if (sueleccion == "roca"){
      var img = document.getElementById("rocaBdorada");
      ctx.drawImage(img, 150, 200, 150, 150);
   };
-  if (sueleccion == "papelB"){
+  if (sueleccion == "papel"){
      var img = document.getElementById("papelBdorado");
      ctx.drawImage(img, 150, 200, 150, 150);   
   };
@@ -238,31 +238,31 @@ myCanvas.onmousedown = function(e) {
   //var mia = false;
   //var suya = false;
       if (x >= 645 && x <= 697 && y >= 485 && y <= 537){
-          mijugada = "tijeraR";
+          mijugada = "tijera";
           //mia = true;
       };
       
       if (x >= 712 && x <= 764 && y >= 485 && y <= 537){
-          mijugada = "papelR";
+          mijugada = "papel";
           //mia = true;
       };
       
       if (x >= 782 && x <= 832 && y >= 485 && y <= 537){
-          mijugada = "rocaR";
+          mijugada = "roca";
           //mia = true;
       };
       
       if (x >= 76 && x <= 126 && y >= 485 && y <= 537){
-          sujugada = "rocaB";
+          sujugada = "roca";
           //suya = true;
       };
       if (x >= 146 && x <= 198 && y >= 485 && y <= 537){
-          sujugada = "papelB";
+          sujugada = "papel";
           //suya = true;
       };
       
       if (x >= 211 && x <= 263 && y >= 485 && y <= 537){
-          sujugada = "tijeraB";
+          sujugada = "tijera";
           //suya = true;
       };    
   if ( x >= 0 && x <= 60 && y >= 0 && y <= 70){
