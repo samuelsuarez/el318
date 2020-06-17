@@ -84,6 +84,7 @@ var mensaje;
 window.onload = function() {
       var canvas = document.getElementById("myCanvas");
       ctx = canvas.getContext("2d");
+      <button onclick="jugar()">Play</button>	
       var img = document.getElementById("scream");
       ctx.drawImage(img, 0, 0, 900, 550);
       var img = document.getElementById("rocaroja");
@@ -108,13 +109,13 @@ window.onload = function() {
       
 };
 
-myCanvas.onmousedown = function(e) {
+/*myCanvas.onmousedown = function(e) {
    var x = e.clientX;
    var y = e.clientY;
    if (x >= 0 && x <= 60 && y >= 0 && y <= 70){
       jugar();
    }	
-}
+}*/
 
 
 
@@ -139,8 +140,7 @@ function jugar(){
                  }
             }
         }
-    return mijugada, sujugada;
-    };
+    }
     mostrarjugada (mijugada,sujugada);
 };
     
