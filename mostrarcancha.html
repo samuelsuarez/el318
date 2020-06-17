@@ -39,8 +39,7 @@
 <img id="boton" src="boton.png" style="display:none">
 <img id="marcador" src="marcador.png" style="display:none">
 <p id="estadoclick"></p>
-<p id="mijugada"></p>
-<p id="sujugada"></p>	
+	
 
     
 
@@ -60,8 +59,7 @@ Your browser does not support the HTML5 canvas tag.
 
 //var estadoclick = document.getElementById("estadoclick");
 var ctx;
-var mijugada = 	document.getElementById("mijugada");
-var sujugada = 	document.getElementById("sujugada");   
+  
 /*var usuario = "Math.random()";
 var canal = "juego";
   //var output = document.getElementById("output");
@@ -108,9 +106,12 @@ window.onload = function() {
       var img = document.getElementById("pelota");
       ctx.drawImage(img, 375, 200, 150, 150);      
 };
-
-
-
+</script>
+<p id="mijugada"></p>
+<p id="sujugada"></p>	
+<script>
+var mijugada = 	document.getElementById("mijugada");
+var sujugada = 	document.getElementById("sujugada"); 
 
 
 
@@ -136,8 +137,8 @@ window.onload = function() {
     }
     
 function aleatorio(minimo,maximo){
-	var a = Math.floor(Math.random() * (max - min)) + min;
-	var su;
+    var a = Math.floor(Math.random() * (max - min)) + min);
+    var su;
     if (a == 1){
         su = "roca";
     }else{ 
