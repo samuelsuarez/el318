@@ -81,7 +81,7 @@ var mensaje;
 */   
    
    
-   
+<button onclick="pintar1(a)">Try it</button>   
 window.onload = function() {
       var canvas = document.getElementById("myCanvas");
       ctx = canvas.getContext("2d");
@@ -229,7 +229,14 @@ function pintarsujugada (sueleccion){
             },100);
     };
  };*/
- 
+
+function pintar1(a) {
+    if (a == "mijugada"){
+        var img = document.getElementById("tijeraBdorada");
+        ctx.drawImage(img, 375, 200, 150, 150);
+    };
+};
+    
 myCanvas.onmousedown = function(e) {
   var x = e.clientX;
   var y = e.clientY;  
@@ -271,8 +278,8 @@ myCanvas.onmousedown = function(e) {
   pintarmijugada (mijugada);
   pintarsujugada (sujugada);
   var a = ganador(mijugada,sujugada);  
-  
-  if ( x >= 0 && x <= 60 && y >= 0 && y <= 70){
+  <button type="button" onclick="pintar1(a)">Click Me!</button>
+  /*if ( x >= 0 && x <= 60 && y >= 0 && y <= 70){
       if (a == "mijugada"){
       var img = document.getElementById("scream");
       ctx.drawImage(img, 0, 0, 900, 550);
@@ -296,7 +303,7 @@ myCanvas.onmousedown = function(e) {
       ctx.drawImage(img, 375, 200, 150, 150);    
       };
       //jugar (mijugada, sujugada);
-      };
+      };*/
       
    //if (mia == true && suya == true){
       
