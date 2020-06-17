@@ -58,7 +58,6 @@ Your browser does not support the HTML5 canvas tag.
 
 //var estadoclick = document.getElementById("estadoclick");
 var ctx;
-var opciones = ["Piedra","Papel","Tijera"];
    
 /*var usuario = "Math.random()";
 var canal = "juego";
@@ -109,7 +108,7 @@ window.onload = function() {
       
 };
 
-function juego(){
+
     var mijugada;
     var sujugada
     myCanvas.onmousedown = function(e) {
@@ -132,7 +131,7 @@ function juego(){
     return mijugada, sujugada;
     };
     mostrarjugada (mijugada,sujugada);
-};
+
     
 function aleatorio(minimo,maximo){
 	var a = Math.floor(Math.random()*(maximo-minimo+1)+minimo);
