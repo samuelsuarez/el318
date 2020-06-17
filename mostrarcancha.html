@@ -39,6 +39,8 @@
 <img id="boton" src="boton.png" style="display:none">
 <img id="marcador" src="marcador.png" style="display:none">
 <p id="estadoclick"></p>
+<p id="mijugada"></p>
+<p id="sujugada"></p>	
 
     
 
@@ -58,7 +60,8 @@ Your browser does not support the HTML5 canvas tag.
 
 //var estadoclick = document.getElementById("estadoclick");
 var ctx;
-   
+var mijugada = 	document.getElementById("mijugada");
+var sujugada = 	document.getElementById("sujugada");   
 /*var usuario = "Math.random()";
 var canal = "juego";
   //var output = document.getElementById("output");
@@ -106,34 +109,31 @@ window.onload = function() {
       ctx.drawImage(img, 375, 200, 150, 150);      
 };
 
-<button id ="Play" name = "btnPlay" onclick="jugar();">play</button>
 
 
 
 
-function jugar(){
-    var mijugada;
-    var sujugada;
+
+
     myCanvas.onmousedown = function(e) {
         var x = e.clientX;
         var y = e.clientY;  
         if (x >= 645 && x <= 697 && y >= 485 && y <= 537){
-           mijugada = "tijera";
-           sujugada = aleatorio (0.2); 
+           mijugada.innerHTML = "tijera";
+           sujgada.innerHTML = aleatorio (0.2); 
         }else{ 
             if (x >= 712 && x <= 764 && y >= 485 && y <= 537){
-               mijugada = "papel";
-               sujugada = aleatorio (0.2); 
+               mijugada.innerHTML = "papel";
+               sujgada.innerHTM = aleatorio (0.2); 
             }else{
                  if (x >= 782 && x <= 832 && y >= 485 && y <= 537){
-                    mijugada = "roca";
-                    sujugada = aleatorio (0.2);
+                    mijugada.innerHTML = "roca";
+                    sujgada.innerHTML = aleatorio (0.2);
                  }
             }
         }
+    mostrarjugada (document.getElementById("mijugada"),document.getElementById("sujugada"));
     }
-    mostrarjugada (mijugada,sujugada);
-};
     
 function aleatorio(minimo,maximo){
 	var a = Math.floor(Math.random()*(maximo-minimo+1)+minimo);
