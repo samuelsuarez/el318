@@ -108,9 +108,20 @@ window.onload = function() {
       
 };
 
+myCanvas.onmousedown = function(e) {
+   var x = e.clientX;
+   var y = e.clientY;
+   if (x >= 0 && x <= 60 && y >= 0 && y <= 70){
+      jugar();
+   }	
+}
 
+
+
+
+function jugar(){
     var mijugada;
-    var sujugada
+    var sujugada;
     myCanvas.onmousedown = function(e) {
         var x = e.clientX;
         var y = e.clientY;  
@@ -131,7 +142,7 @@ window.onload = function() {
     return mijugada, sujugada;
     };
     mostrarjugada (mijugada,sujugada);
-
+};
     
 function aleatorio(minimo,maximo){
 	var a = Math.floor(Math.random()*(maximo-minimo+1)+minimo);
