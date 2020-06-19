@@ -111,7 +111,7 @@ window.onload = function() {
 
 
 
-function jugar(){
+/*function jugar(){
     myCanvas.onmousedown = function(e) {
         var x = e.clientX;
         var y = e.clientY;
@@ -133,9 +133,9 @@ function jugar(){
         }
     mostrarjugada (mijugada,sujugada);
     }
-};
+};*/
     
-function aleatorio(minimo,maximo){
+/*function aleatorio(minimo,maximo){
     var a = Math.floor(Math.random() * (max - min+1) + min);
     var su;
     if (a == 1){
@@ -150,11 +150,11 @@ function aleatorio(minimo,maximo){
         }
     }
     return su;
-}
+}*/
 
     
     
-function mostrarjugada (mia,suya){
+/*function mostrarjugada (mia,suya){
     if (mia == "tijera"){
         if (suya == "tijera"){
             var img = document.getElementById("tijeraRdorada");
@@ -223,7 +223,7 @@ function mostrarjugada (mia,suya){
             }
         }
     }
-}
+}*/
    
 /*function ganador (mia, suya){ 
    if (mia == "roca" && suya == "tijera"){
@@ -302,7 +302,7 @@ function mostrarjugada (mia,suya){
 
 
     
-/*function pintarmijugada (mieleccion){
+function pintarmijugada (mieleccion){
    if (mieleccion == "tijera"){
      var img = document.getElementById("tijeraRdorada");
      ctx.drawImage(img, 600, 200, 150, 150);
@@ -330,7 +330,7 @@ function pintarsujugada (sueleccion){
      var img = document.getElementById("papelBdorado");
      ctx.drawImage(img, 150, 200, 150, 150);   
   };
-};*/    
+};    
    
  /*function jugar (mia, suya){
     var a = 1;
@@ -353,11 +353,11 @@ function pintarsujugada (sueleccion){
     };
 };*/
     
-/*myCanvas.onmousedown = function(e) {
+myCanvas.onmousedown = function(e) {
   var x = e.clientX;
   var y = e.clientY;  
   var mia;
-  //var sujugada;  
+  var sujugada;  
   //var px = 410;
   //var py = 235;  
       if (x >= 645 && x <= 697 && y >= 485 && y <= 537){
@@ -389,12 +389,10 @@ function pintarsujugada (sueleccion){
           //suya = true;
       };
   
-  pintarjugada (mia);
-  mijugada.innerHTML = mia;; 
+  pintarmijugada (mia);
+  pintarsujugada (sujugada);	
 };
 
-if ( x >= 0 && x <= 60 && y >= 0 && y <= 70){
-      }; */  
     
 </script>
 
