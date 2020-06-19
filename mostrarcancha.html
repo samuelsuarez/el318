@@ -60,8 +60,7 @@ Your browser does not support the HTML5 canvas tag.
 //var estadoclick = document.getElementById("estadoclick");
 var ctx;
 var opciones = ["roca","papel","tijera"];
-var mijugada;
-var sujugada; 
+
 /*var usuario = "Math.random()";
 var canal = "juego";
   //var output = document.getElementById("output");
@@ -89,7 +88,6 @@ window.onload = function() {
       ctx = canvas.getContext("2d");	
       var img = document.getElementById("scream");
       ctx.drawImage(img, 0, 0, 900, 550);
-      <button id="jugar" name="btnjugar" onClick="jugar(mijugada,sujugada);">Jugar</button>
       var img = document.getElementById("rocaroja");
       ctx.drawImage(img, 782, 485, 50, 50);
       var img = document.getElementById("papelrojo");
@@ -113,12 +111,12 @@ window.onload = function() {
 
 
 
-function jugar(mijugada,sujugada){
+function jugar(){
     myCanvas.onmousedown = function(e) {
         var x = e.clientX;
         var y = e.clientY;
 	var mijugada;
-	var mijugada;    
+	var sujugada;    
         if (x >= 645 && x <= 697 && y >= 485 && y <= 537){
            mijugada = "tijera";
            sujugada = aleatorio (1,3); 
